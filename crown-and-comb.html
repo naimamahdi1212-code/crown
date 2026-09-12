@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Crown & Comb — Salon & Barbershop, Kasarani</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+
+  :root{
+    --ink:#1B1815;
+    --ink-soft:#2A2521;
+    --cream:#F3ECDF;
+    --cream-dim:#E9E0CF;
+    --gold:#C8963E;
+    --burgundy:#6E2A2A;
+    --muted:#8C8275;
+    --muted-on-dark:#B8AE9E;
+  }
+
+  *{ box-sizing:border-box; margin:0; padding:0; }
+
+  html{ scroll-behavior:smooth; }
+
+  body{
+    font-family:'Work Sans', sans-serif;
+    background:var(--cream);
+    color:var(--ink);
+    font-size:16px;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  h1,h2,h3{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    line-height:1.1;
+  }
+
+  a{ color:inherit; text-decoration:none; }
+
+  img, svg{ display:block; max-width:100%; }
+
+  .wrap{
+    max-width:640px;
+    margin:0 auto;
+    padding:0 22px;
+  }
+
+  /* ---------- HERO ---------- */
+
+  .hero{
+    background:var(--ink);
+    color:var(--cream);
+    padding:72px 0 56px;
+  }
+
+  .hero .kicker{
+    font-family:'Work Sans', sans-serif;
+    font-size:15px;
+    color:var(--muted-on-dark);
+    margin-bottom:14px;
+  }
+
+  .hero h1{
+    font-size:clamp(2.4rem, 9vw, 3.4rem);
+    font-optical-sizing:auto;
+    letter-spacing:-0.01em;
+    max-width:11ch;
+  }
+
+  .hero .stripe{
+    width:64px;
+    height:5px;
+    margin:26px 0;
+    background:linear-gradient(90deg, var(--gold), var(--burgundy));
+    border-radius:2px;
+  }
+
+  .hero p.tag{
+    font-size:1.15rem;
+    max-width:34ch;
+    color:var(--cream-dim);
+  }
+
+  .hero .cta-row{
+    margin-top:34px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+  }
+
+  .btn{
+    display:inline-block;
+    padding:14px 22px;
+    font-size:0.98rem;
+    font-weight:500;
+    border-radius:3px;
+    border:1px solid transparent;
+    cursor:pointer;
+  }
+
+  .btn-primary{
+    background:var(--gold);
+    color:var(--ink);
+  }
+
+  .btn-ghost{
+    border-color:rgba(243,236,223,0.35);
+    color:var(--cream);
+  }
+
+  /* ---------- SECTION SPACING ---------- */
+
+  section{ padding:56px 0; }
+
+  section h2{
+    font-size:1.7rem;
+    margin-bottom:18px;
+  }
+
+  .section-dark{
+    background:var(--ink);
+    color:var(--cream);
+  }
+
+  .section-dark .muted{ color:var(--muted-on-dark); }
+  .muted{ color:var(--muted); }
+
+  /* ---------- ABOUT ---------- */
+
+  .about p{
+    font-size:1.05rem;
+    max-width:52ch;
+  }
+
+  /* ---------- SERVICES ---------- */
+
+  .service-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    gap:16px;
+    padding:16px 0;
+    border-top:1px solid rgba(0,0,0,0.12);
+  }
+
+  .service-row:last-child{ border-bottom:1px solid rgba(0,0,0,0.12); }
+
+  .service-name{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    font-size:1.08rem;
+  }
+
+  .service-desc{
+    font-size:0.92rem;
+    color:var(--muted);
+    margin-top:3px;
+    max-width:38ch;
+  }
+
+  .service-price{
+    font-size:0.98rem;
+    color:var(--burgundy);
+    white-space:nowrap;
+    font-weight:600;
+  }
+
+  .services-note{
+    margin-top:18px;
+    font-size:0.88rem;
+    color:var(--muted);
+  }
+
+  /* ---------- GALLERY ---------- */
+
+  .gallery-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+  }
+
+  .gallery-item{
+    aspect-ratio:1/1;
+    border-radius:3px;
+    position:relative;
+    overflow:hidden;
+    background:
+      repeating-linear-gradient(45deg, var(--cream-dim), var(--cream-dim) 10px, #DED2B8 10px, #DED2B8 20px);
+    display:flex;
+    align-items:flex-end;
+  }
+
+  .gallery-item span{
+    display:block;
+    width:100%;
+    padding:8px 10px;
+    background:rgba(27,24,21,0.72);
+    color:var(--cream);
+    font-size:0.72rem;
+    letter-spacing:0.02em;
+  }
+
+  /* ---------- HOURS ---------- */
+
+  .hours-list{
+    list-style:none;
+    max-width:44ch;
+  }
+
+  .hours-list li{
+    display:flex;
+    justify-content:space-between;
+    padding:9px 0;
+    border-bottom:1px solid rgba(243,236,223,0.14);
+    font-size:0.98rem;
+  }
+
+  .hours-list li:last-child{ border-bottom:none; }
+
+  .hours-cta{
+    margin-top:28px;
+    padding:20px;
+    background:var(--ink-soft);
+    border-radius:4px;
+    border-left:3px solid var(--gold);
+  }
+
+  .hours-cta p{
+    font-size:0.95rem;
+    color:var(--cream-dim);
+    margin-bottom:14px;
+  }
+
+  /* ---------- LOCATION ---------- */
+
+  .location-box{
+    padding:18px 20px;
+    border:1px solid rgba(0,0,0,0.14);
+    border-radius:4px;
+    margin-top:6px;
+  }
+
+  .location-box .place{
+    font-family:'Fraunces', serif;
+    font-size:1.15rem;
+    margin-bottom:6px;
+  }
+
+  /* ---------- CONTACT / FOOTER ---------- */
+
+  footer{
+    background:var(--ink);
+    color:var(--cream);
+    padding:48px 0 90px;
+  }
+
+  .contact-list{
+    margin-top:18px;
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+  }
+
+  .contact-item{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    font-size:1rem;
+  }
+
+  .contact-item .ic{
+    width:20px;
+    height:20px;
+    flex-shrink:0;
+    opacity:0.85;
+  }
+
+  footer .fine{
+    margin-top:36px;
+    font-size:0.8rem;
+    color:var(--muted-on-dark);
+  }
+
+  /* ---------- STICKY WHATSAPP (mobile) ---------- */
+
+  .wa-float{
+    position:fixed;
+    right:16px;
+    bottom:16px;
+    background:#25D366;
+    color:#0B0B0B;
+    width:56px;
+    height:56px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    box-shadow:0 4px 14px rgba(0,0,0,0.28);
+    z-index:50;
+  }
+
+  .wa-float svg{ width:28px; height:28px; }
+
+  @media (min-width:640px){
+    .hero{ padding:96px 0 72px; }
+    section{ padding:72px 0; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ========== HERO ========== -->
+<section class="hero">
+  <div class="wrap">
+    <div class="kicker">Salon &amp; Barbershop</div>
+    <h1>Crown &amp; Comb</h1>
+    <div class="stripe"></div>
+    <p class="tag">Braids, fades, shaves and treatments for every member of the family — done properly, close to home.</p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="https://wa.me/254712345678?text=Hi%20Crown%20%26%20Comb%2C%20I%27d%20like%20to%20book%20a%20slot" target="_blank" rel="noopener">Book on WhatsApp</a>
+      <a class="btn btn-ghost" href="tel:+254712345678">Call the shop</a>
+    </div>
+  </div>
+</section>
+
+<!-- ========== ABOUT ========== -->
+<section class="about">
+  <div class="wrap">
+    <h2>About us</h2>
+    <p>Crown &amp; Comb has been trimming, braiding and grooming Kasarani for years. We serve women, men and kids under one roof — whether you're in for a quick fade before work or a full day of weaving. Clean tools, steady hands, and no rushing your appointment.</p>
+  </div>
+</section>
+
+<!-- ========== SERVICES ========== -->
+<section class="section-dark">
+  <div class="wrap">
+    <h2>Services &amp; pricing</h2>
+
+    <div class="service-row">
+      <div>
+        <div class="service-name">Braiding</div>
+        <div class="muted service-desc">Box braids, cornrows, knotless — length and style affect price.</div>
+      </div>
+      <div class="service-price">KSh 800–3,500</div>
+    </div>
+
+    <div class="service-row">
+      <div>
+        <div class="service-name">Weaving</div>
+        <div class="muted service-desc">Sew-in and closure styles, wash and blow-dry included.</div>
+      </div>
+      <div class="service-price">KSh 1,000–4,000</div>
+    </div>
+
+    <div class="service-row">
+      <div>
+        <div class="service-name">Haircuts</div>
+        <div class="muted service-desc">Fades, trims, kids' cuts.</div>
+      </div>
+      <div class="service-price">KSh 200–500</div>
+    </div>
+
+    <div class="service-row">
+      <div>
+        <div class="service-name">Shaving</div>
+        <div class="muted service-desc">Hot towel shave, beard shaping and line-ups.</div>
+      </div>
+      <div class="service-price">KSh 150–350</div>
+    </div>
+
+    <div class="service-row">
+      <div>
+        <div class="service-name">Treatments</div>
+        <div class="muted service-desc">Deep conditioning, relaxing, scalp treatment.</div>
+      </div>
+      <div class="service-price">KSh 500–1,500</div>
+    </div>
+
+    <p class="muted services-note">Prices are a rough guide — final cost depends on hair length and style. Ask us on WhatsApp for an exact quote before you come in.</p>
+  </div>
+</section>
+
+<!-- ========== GALLERY ========== -->
+<section class="gallery">
+  <div class="wrap">
+    <h2>A look inside</h2>
+    <p class="muted" style="margin-bottom:18px; font-size:0.92rem;">Placeholder gallery — swap these four tiles for real photos of the shop and finished styles.</p>
+    <div class="gallery-grid">
+      <div class="gallery-item"><span>Placeholder — shop interior</span></div>
+      <div class="gallery-item"><span>Placeholder — braiding work</span></div>
+      <div class="gallery-item"><span>Placeholder — barber chair</span></div>
+      <div class="gallery-item"><span>Placeholder — finished style</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== HOURS ========== -->
+<section class="section-dark">
+  <div class="wrap">
+    <h2>Opening hours</h2>
+    <ul class="hours-list">
+      <li><span>Monday – Friday</span><span>8:00 AM – 8:00 PM</span></li>
+      <li><span>Saturday</span><span>8:00 AM – 9:00 PM</span></li>
+      <li><span>Sunday</span><span>10:00 AM – 6:00 PM</span></li>
+    </ul>
+
+    <div class="hours-cta">
+      <p>Walk-ins are welcome, but a WhatsApp booking means no waiting around.</p>
+      <a class="btn btn-primary" href="https://wa.me/254712345678?text=Hi%20Crown%20%26%20Comb%2C%20I%27d%20like%20to%20book%20a%20slot" target="_blank" rel="noopener">Book your slot via WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<!-- ========== LOCATION ========== -->
+<section class="location">
+  <div class="wrap">
+    <h2>Where we are</h2>
+    <div class="location-box">
+      <div class="place">Serving Kasarani and surrounding estates</div>
+      <p class="muted">Along Kasarani–Mwiki Road, next to the estate shops — five minutes' walk from Kasarani stage.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ========== CONTACT / FOOTER ========== -->
+<footer>
+  <div class="wrap">
+    <h2>Get in touch</h2>
+    <div class="contact-list">
+      <div class="contact-item">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 5c0 8.284 6.716 15 15 15v-3.2a1 1 0 0 0-.8-.98l-3.6-.72a1 1 0 0 0-1.02.44l-1 1.5a12.3 12.3 0 0 1-5.62-5.62l1.5-1a1 1 0 0 0 .44-1.02l-.72-3.6A1 1 0 0 0 7.2 4H4Z"/></svg>
+        <a href="tel:+254712345678">+254 712 345 678</a>
+      </div>
+      <div class="contact-item">
+        <svg class="ic" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.4A10 10 0 1 0 12 2Zm5.5 14.2c-.2.6-1.3 1.2-1.9 1.3-.5.1-1.1.1-1.8-.1-.4-.1-1-.3-1.7-.6-3-1.3-4.9-4.3-5.1-4.5-.1-.2-1.2-1.6-1.2-3.1s.8-2.2 1.1-2.5c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5.2.5.8 1.9.9 2.1.1.2.1.3 0 .5-.1.2-.2.3-.3.5-.2.2-.3.3-.1.6.8 1.4 1.7 2 3.1 2.7.2.1.4.1.5-.1.2-.2.6-.7.8-1 .2-.2.3-.2.6-.1.2.1 1.6.8 1.9 1 .3.1.5.2.5.3.1.2.1.7-.1 1.2Z"/></svg>
+        <a href="https://wa.me/254712345678?text=Hi%20Crown%20%26%20Comb%2C%20I%27d%20like%20to%20book%20a%20slot" target="_blank" rel="noopener">Chat on WhatsApp</a>
+      </div>
+    </div>
+    <p class="fine">Crown &amp; Comb · Kasarani, Nairobi. Replace the phone number and address above with the real shop details.</p>
+  </div>
+</footer>
+
+<!-- Floating WhatsApp button, mobile-first quick access -->
+<a class="wa-float" href="https://wa.me/254712345678?text=Hi%20Crown%20%26%20Comb%2C%20I%27d%20like%20to%20book%20a%20slot" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24" fill="#0B0B0B"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.4A10 10 0 1 0 12 2Zm5.5 14.2c-.2.6-1.3 1.2-1.9 1.3-.5.1-1.1.1-1.8-.1-.4-.1-1-.3-1.7-.6-3-1.3-4.9-4.3-5.1-4.5-.1-.2-1.2-1.6-1.2-3.1s.8-2.2 1.1-2.5c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5.2.5.8 1.9.9 2.1.1.2.1.3 0 .5-.1.2-.2.3-.3.5-.2.2-.3.3-.1.6.8 1.4 1.7 2 3.1 2.7.2.1.4.1.5-.1.2-.2.6-.7.8-1 .2-.2.3-.2.6-.1.2.1 1.6.8 1.9 1 .3.1.5.2.5.3.1.2.1.7-.1 1.2Z"/></svg>
+</a>
+
+</body>
+</html>
